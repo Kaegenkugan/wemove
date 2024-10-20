@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>wemoveapp. - Sign Up</title>
+    	<link href="assets/icons/favicon.png" rel="icon" sizes="16x16" type="image/png" /><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="description" content="WeMoveApp by @kaegenkugan"><meta name="keywords" content="running,fitness">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="assets/css/3D_CSS_PROGRESS_BAR_BY_REDSTAPLER-1.css">
+    <link rel="stylesheet" href="assets/css/3D_CSS_PROGRESS_BAR_BY_REDSTAPLER.css">
+    <link rel="stylesheet" href="assets/css/Article-List.css">
+    <link rel="stylesheet" href="assets/css/circle-progress-bar.css">
+    <link rel="stylesheet" href="assets/css/Features-Clean.css">
+    <link rel="stylesheet" href="assets/css/Footer-Basic.css">
+    <link rel="stylesheet" href="assets/css/Footer-Clean.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="assets/css/Login-Form-Clean.css">
+    <link rel="stylesheet" href="assets/css/mk_charts.css">
+    <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
+    <link rel="stylesheet" href="assets/css/Navigation-with-Button.css">
+    <link rel="stylesheet" href="assets/css/progress-bars.css">
+    <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css">
+    <link rel="stylesheet" href="assets/css/Social-Icons.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/Toggle-Switches.css">
+    <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-firestore.js"></script>
+
+    
+    <script>
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyBHxrWOJP8C_9qtJZQXH0GhJ9yEs2AUTrc",
+          authDomain: "wemoveapp-ee971.firebaseapp.com",
+          projectId: "wemoveapp-ee971",
+          storageBucket: "wemoveapp-ee971.appspot.com",
+          messagingSenderId: "895401271740",
+          appId: "1:895401271740:web:1a82282f3d6c9bc5398bb9",
+          measurementId: "G-XBM6Q97TJQ"
+};
+        // Initialize Firebase
+        const app = firebase.initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+    </script>
+    
+</head>
+
+<body style="background: rgba(255,255,255,0);">
+    <nav class="navbar navbar-light navbar-expand-md navigation-clean">
+        <div class="container"><a class="navbar-brand" href="index.html" style="color: #6d48e5;font-family: Montserrat, sans-serif;font-size: 16px;">wemoveapp.</a><a class="btn btn-primary text-center float-right" role="button" style="font-family: Montserrat, sans-serif;background: #6d48e5;font-size: 13px;height: 34px;width: 123.562px;margin: 4px;" href="login.html">Login instead?</a></div>
+    </nav>
+    <section class="register-photo" style="margin: 0px;background: linear-gradient(90deg, var(--indigo), rgb(108,18,237) 0%, rgb(119,22,228) 11%, rgb(163,38,194) 41%, var(--pink) 96%), rgba(255,255,255,0);background-size: auto, auto;border-style: none;border-color: #6d48e5;border-bottom-color: rgba(241,247,252,0);border-bottom-left-radius: 0px;border-top-left-radius: 0px;">
+        <div class="form-container">
+            <div class="image-holder" style="background: url(&quot;assets/images/Copy%20of%20Copy%20of%20Copy%20of%20Pink%20and%20Purple%20Gradient%20Futuristic%20Neon%20Survival%20Animated%20Logo.gif&quot;) space;background-size: cover;border-radius: 0px;border-top-left-radius: 10px;border-bottom-left-radius: 10px;"></div>
+            <form method="post" id="signupForm" style="border-color: var(--pink);border-bottom-width: 4px;border-bottom-color: var(--pink);border-top-right-radius: 10px;border-bottom-right-radius: 10px;border-top-left-radius: 10px;border-bottom-left-radius: 10px;">
+                <div class="form-group">
+                    <h6 class="text-center pulse animated" style="color: var(--purple);font-family: Montserrat, sans-serif;text-align: center;">First Name</h6><input class="form-control" type="text" data-bss-hover-animate="pulse" name="First Name" style="opacity: 1;height: 39px;padding: 18px 12px;font-family: ABeeZee, sans-serif;border-radius: 10px;border-bottom-width: 1px;border-bottom-color: var(--purple);">
+                </div>
+                <div class="form-group">
+                    <h6 class="text-center pulse animated" style="color: var(--purple);font-family: Montserrat, sans-serif;">Email</h6><input class="form-control" type="email" data-bss-hover-animate="pulse" name="email" style="border-radius: 10px;opacity: 1;font-family: ABeeZee, sans-serif;border: 0px solid var(--gray) ;border-bottom-width: 1px;border-bottom-color: var(--purple);">
+                </div>
+                <h6 class="text-center pulse animated" style="color: var(--purple);font-family: Montserrat, sans-serif;">Password</h6>
+                <div class="form-group"><input class="form-control" type="password" data-bss-hover-animate="pulse" name="password" style="border-radius: 10px;border-bottom-color: var(--purple);"></div>
+                <h6 class="text-center pulse animated" style="color: var(--purple);font-family: Montserrat, sans-serif;">Confirm Password</h6>
+                <div class="form-group"><input class="form-control" type="password" data-bss-hover-animate="pulse" name="password-repeat" style="border-radius: 10px;font-family: ABeeZee, sans-serif;border-bottom-color: var(--purple);"></div>
+                <div class="form-group">
+                    <div class="form-check"><label class="form-check-label"><input class="form-check-input" type="checkbox">I agree to the license terms.</label></div>
+                </div>
+                <div class="form-group"><button class="btn btn-primary btn-block" type="button" onclick="signUp()" style="background: linear-gradient(var(--purple) -227%, rgb(185,64,161) -28%, var(--pink)), var(--purple);font-family: Montserrat, sans-serif;">Sign Up</button></div><a class="already" href="login.html">You already have an account? Login here.</a>
+            </form>
+        </div>
+    </section>
+    <footer class="footer-basic" style="background: linear-gradient(90deg, var(--indigo), rgb(129,26,221) 18%, rgb(166,39,192) 41%, var(--pink) 96%);background-size: auto;">
+        <div class="social"><i class="fa fa-instagram" style="font-size: 36px;color: var(--light);"></i></div>
+        <p class="copyright" style="border-color: var(--white);color: var(--light);">wemovecompany© 2024</p>
+    </footer>
+   <script>
+  function signUp() {
+    var email = document.querySelector('[name="email"]').value;
+    var fullName = document.querySelector('[name="First Name"]').value;  // Assuming you have a 'First Name' field
+    var password = document.querySelector('[name="password"]').value;
+
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        // Signed in 
+        var user = userCredential.user;
+
+        // Now create a Firestore entry for the user
+        const db = firebase.firestore();
+        db.collection("users").doc(user.uid).set({
+          VIP: false,
+          billingAddress: "",
+          calorieTarget: "100",
+          charitySelection: "",
+          fullName: fullName,  // Assuming you want to use the 'First Name' as the full name
+          height: "",
+          location: new firebase.firestore.GeoPoint(0,0), // Placeholder, adjust with actual location if available
+          photoURL: "",
+          races: [],
+          uid: user.uid,
+          weight: "",
+          wemovepoints: 0
+        })
+        .then(() => {
+          console.log("Document successfully written!");
+          window.location.href = 'account.html';  // Redirect here if everything is successful
+        })
+        .catch((error) => {
+          console.error("Error writing document: ", error);
+        });
+
+      })
+      .catch((error) => {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // Display error message
+        alert(errorMessage);
+      });
+  }
+</script>
+
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="assets/js/3D_CSS_PROGRESS_BAR_BY_REDSTAPLER.js"></script>
+    <script src="assets/js/mk_charts.js"></script>
+</body>
+
+</html>

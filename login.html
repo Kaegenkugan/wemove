@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>wemoveapp. - Login</title>
+    	<link href="assets/icons/favicon.png" rel="icon" sizes="16x16" type="image/png" /><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="description" content="WeMoveApp by @kaegenkugan"><meta name="keywords" content="running,fitness">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="assets/css/3D_CSS_PROGRESS_BAR_BY_REDSTAPLER-1.css">
+    <link rel="stylesheet" href="assets/css/3D_CSS_PROGRESS_BAR_BY_REDSTAPLER.css">
+    <link rel="stylesheet" href="assets/css/Article-List.css">
+    <link rel="stylesheet" href="assets/css/circle-progress-bar.css">
+    <link rel="stylesheet" href="assets/css/Features-Clean.css">
+    <link rel="stylesheet" href="assets/css/Footer-Basic.css">
+    <link rel="stylesheet" href="assets/css/Footer-Clean.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="assets/css/Login-Form-Clean.css">
+    <link rel="stylesheet" href="assets/css/mk_charts.css">
+    <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
+    <link rel="stylesheet" href="assets/css/Navigation-with-Button.css">
+    <link rel="stylesheet" href="assets/css/progress-bars.css">
+    <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css">
+    <link rel="stylesheet" href="assets/css/Social-Icons.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/Toggle-Switches.css">
+    
+    <link rel="stylesheet" href="assets/css/Toggle-Switches.css">
+    <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-auth.js"></script>
+    
+    <script>
+        
+        
+        const firebaseConfig = {
+          apiKey: "AIzaSyBHxrWOJP8C_9qtJZQXH0GhJ9yEs2AUTrc",
+          authDomain: "wemoveapp-ee971.firebaseapp.com",
+          projectId: "wemoveapp-ee971",
+          storageBucket: "wemoveapp-ee971.appspot.com",
+          messagingSenderId: "895401271740",
+          appId: "1:895401271740:web:5bba15c76f3a0978398bb9",
+          measurementId: "G-69MH3F227S"
+        };
+        
+        const app = firebase.initializeApp(firebaseConfig);
+        
+    </script>
+    
+</head>
+
+<body  style="background: linear-gradient(90deg, var(--indigo) -6%, rgb(163,38,194) 34%, var(--pink) 97%);">
+    <nav class="navbar navbar-light navbar-expand-md navigation-clean">
+        <div class="container"><a class="navbar-brand" href="index.html" style="color: #6d48e5;font-family: Montserrat, sans-serif;font-size: 16px;">wemoveapp.</a><a class="btn btn-primary text-center float-right" role="button" style="font-family: Montserrat, sans-serif;background: #6d48e5;font-size: 13px;height: 34px;width: 120.562px;margin: 4px;" href="signup.html">Sign Up</a></div>
+    </nav>
+    <section class="login-clean" style="background: linear-gradient(90deg, var(--indigo) -6%, rgb(163,38,194) 34%, var(--pink) 97%);">
+        <form method="post" id="loginForm">
+            <h2 class="sr-only">Login Form</h2>
+            <div class="illustration"><img data-bss-hover-animate="tada" style="background: url(&quot;assets/imaesg/circle-cropped%20(1).png&quot;);height: 114px;background-size: cover;" src="assets/images/circle-cropped%20(1).png"></div>
+            <div class="form-group">
+                <h6 class="text-center pulse animated" style="color: var(--purple);font-family: Montserrat, sans-serif;text-align: center;">Email</h6><input class="form-control" type="email" data-bss-hover-animate="pulse" name="email" style="border-radius: 10px;border-bottom-color: var(--purple);color: var(--gray);">
+            </div>
+            <div class="form-group">
+                <h6 class="text-center pulse animated" style="color: var(--purple);font-family: Montserrat, sans-serif;text-align: center;">Password</h6><input class="form-control" type="password" data-bss-hover-animate="pulse" name="password" style="border-radius: 10px;border-bottom-color: var(--purple);color: var(--gray);">
+            </div>
+            <div class="form-group"><button class="btn btn-primary btn-block" type="button" onclick="logIn()" style="background: linear-gradient(180deg, var(--purple) -123%, var(--pink) 100%), var(--indigo);border-radius: 4px;font-size: 16px;font-family: Montserrat, sans-serif;">Log in</button></div>
+            <a class="forgot" href="#">Forgot your email or password?</a>
+        </form>
+    </section>
+    
+    <script>
+        // Login Function
+        function logIn() {
+            var email = document.querySelector('[name="email"]').value;
+            var password = document.querySelector('[name="password"]').value;
+        
+            firebase.auth().signInWithEmailAndPassword(email, password)
+            .then((userCredential) => {
+                // Redirect to account.html on successful login
+                window.location.href = 'account.html'; // Change the path if necessary
+            })
+            .catch((error) => {
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                // Display error message
+            });
+        }
+
+    </script>
+    <footer class="footer-basic" style="background: linear-gradient(90deg, var(--indigo), rgb(114,20,232) 0%, rgb(161,37,195) 34%, var(--pink) 96%);background-size: auto;">
+        <div class="social" style="border-bottom-color: var(--purple);"><i class="fa fa-instagram" style="font-size: 36px;border-color: var(--white);color: var(--white);"></i></div>
+        <p class="copyright" style="color: var(--light);">wemovecompany© 2023</p>
+    </footer>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="assets/js/3D_CSS_PROGRESS_BAR_BY_REDSTAPLER.js"></script>
+    <script src="assets/js/mk_charts.js"></script>
+</body>
+
+</html>

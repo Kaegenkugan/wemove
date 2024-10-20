@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 728.969px;">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>My Progress</title>
+    	<link href="assets/icons/favicon.png" rel="icon" sizes="16x16" type="image/png" /><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="description" content="WeMoveApp by @kaegenkugan"><meta name="keywords" content="running,fitness">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="assets/css/3D_CSS_PROGRESS_BAR_BY_REDSTAPLER-1.css">
+    <link rel="stylesheet" href="assets/css/3D_CSS_PROGRESS_BAR_BY_REDSTAPLER.css">
+    <link rel="stylesheet" href="assets/css/Article-List.css">
+    <link rel="stylesheet" href="assets/css/circle-progress-bar.css">
+    <link rel="stylesheet" href="assets/css/Features-Clean.css">
+    <link rel="stylesheet" href="assets/css/Footer-Basic.css">
+    <link rel="stylesheet" href="assets/css/Footer-Clean.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="assets/css/Login-Form-Clean.css">
+    <link rel="stylesheet" href="assets/css/mk_charts.css">
+    <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
+    <link rel="stylesheet" href="assets/css/Navigation-with-Button.css">
+    <link rel="stylesheet" href="assets/css/progress-bars.css">
+    <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css">
+    <link rel="stylesheet" href="assets/css/Social-Icons.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/Toggle-Switches.css">
+    
+      <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-firestore.js"></script>
+ 
+    <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-auth.js"></script>
+    
+    <script>
+        
+        
+        const firebaseConfig = {
+          apiKey: "AIzaSyBHxrWOJP8C_9qtJZQXH0GhJ9yEs2AUTrc",
+          authDomain: "wemoveapp-ee971.firebaseapp.com",
+          projectId: "wemoveapp-ee971",
+          storageBucket: "wemoveapp-ee971.appspot.com",
+          messagingSenderId: "895401271740",
+          appId: "1:895401271740:web:5bba15c76f3a0978398bb9",
+          measurementId: "G-69MH3F227S"
+        };
+        
+        const app = firebase.initializeApp(firebaseConfig);
+        
+        const analytics = getAnalytics(app);
+    </script>
+    
+    <script>
+    // Ensure Firebase is initialized
+    if (!firebase.apps.length) {
+        firebase.initializeApp(firebaseConfig);
+    }
+
+    // Reference to Firestore
+    const db = firebase.firestore();
+
+    // Get the current user
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            // User is signed in, retrieve user's races
+            const userId = user.uid;
+            db.collection("users").doc(userId).collection("races").get().then(querySnapshot => {
+                querySnapshot.forEach(doc => {
+                   
+
+            // For each race, create HTML elements to show its data
+            const race = doc.data();
+            const raceName = race.raceName; // Assuming field is named 'raceName'
+            const badge = race.badge; // Assuming field is named 'badge'
+            
+            // Ensure the badge variable contains the correct strings and convert them to lowercase
+            const badgeClass = badge.toString().toLowerCase(); // "bronze", "silver", or "gold"
+            
+            // Create a new div element for each race
+            const raceDiv = document.createElement("div");
+            raceDiv.className = `raceDiv ${badgeClass}`; // Adds the correct class for the badge color
+            raceDiv.innerHTML = `
+              <div class="badge-content" >
+                <h5 style ="font-family: Montserrat, sans-serif;">${raceName}</h5>
+                <h7 style="color: white">${badgeClass}</h7>
+                 
+              </div>
+            `; // The .badge-content div wraps the contents and applies flexbox styling
+            document.getElementById("racesContainer").appendChild(raceDiv);
+            
+            
+
+
+                });
+            });
+        } else {
+            // No user is signed in
+            console.log("No user logged in");
+        }
+    });
+</script>
+
+    <style>
+
+
+        .raceDiv {
+          
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          margin: 10px;
+          border-radius: 15px; /* rounded corners */
+          width: 12.5%; /* Adjust width as needed */
+          height: 6vw; /* Adjust height as needed */
+        }
+        
+        .bronze {
+          background: linear-gradient(to right, #cd7f32, #e8a760, #cd7f32);
+        }
+        
+        .silver {
+          background: linear-gradient(to right, #c0c0c0, #e6e6e6, #c0c0c0);
+        }
+        
+        .gold {
+          background: linear-gradient(to right, #ffd700, #ffecb3, #ffd700);
+        }
+        
+        /* Add this class to style the text and image inside the raceDiv */
+        .badge-content {
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
+        
+        
+        </style>
+
+
+</head>
+
+<body style="margin-top: -7px;">
+    <nav class="navbar navbar-light navbar-expand-md navigation-clean">
+        <div class="container"><a class="navbar-brand" href="#" style="color: #6d48e5;font-family: Montserrat, sans-serif;font-size: 16px;">wemoveapp.</a>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item"><a class="nav-link" href="account.html">My details</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#">My progress</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Your trophies!</a></li>
+                </ul>
+            </div>
+            <nav class="navbar navbar-light navbar-expand-md navigation-clean" style="padding: 9px 16px;padding-right: 0px;padding-left: -7px;margin: 0px;margin-left: -18px;">
+                <div class="container"><button data-target="#navcol-1" data-toggle="collapse" class="navbar-toggler"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navcol-1">
+                        <ul class="navbar-nav ml-auto"></ul>
+                    </div>
+                </div>
+            </nav><a class="btn btn-primary text-center float-right" role="button" style="font-family: Montserrat, sans-serif;background: #6d48e5;font-size: 13px;height: 34px;width: 120.562px;margin: 4px;" href="signup.html">Log out</a>
+        </div>
+    </nav>
+    <div style="text-align: center;">
+        <h4 style="color: var(--pink);margin-bottom: 3px;padding-top: 0px;margin-top: 40px;font-family: Montserrat, sans-serif;">Your Progress with us</h4>
+    </div>
+    <div class="float-none">
+        <div class="container">
+            <div class="flex-wrap order-2 mx-auto intro">
+                <div class="row no-gutters" style="height: 165px;padding-top: 50px;padding-bottom: 0px;margin-bottom: 0px;">
+                    <div class="col-md-3 d-inline-block">
+                        <div>
+                            <p style="color: var(--secondary);text-align: center;margin-top: 10px;font-size: 29px;">17.7 Km</p>
+                        </div>
+                        <h5 class="text-center" style="color: var(--pink);font-family: Montserrat, sans-serif;">Distance covered with us</h5>
+                        <div class="text-center"><i class="fa fa-map-marker" style="color: var(--purple);font-size: 25px;margin-top: 15px;"></i></div>
+                    </div>
+                    <div class="col-md-3 d-inline-block" style="color: rgb(232,62,151);">
+                        <p style="color: var(--secondary);text-align: center;margin-top: 10px;font-size: 30px;">8744 Kcal</p>
+                        <h5 class="text-center" style="font-family: Montserrat, sans-serif;color: var(--pink);">Total calories burnt so far</h5>
+                        <div class="text-center"><i class="fas fa-fire" style="color: var(--purple);font-size: 25px;margin-top: 15px;"></i></div>
+                    </div>
+                    <div class="col-md-3 d-inline-block">
+                        <p style="color: var(--secondary);text-align: center;margin-top: 10px;font-size: 30px;">15 hours 32 minutes</p>
+                        <h5 class="text-center" style="font-family: Montserrat, sans-serif;color: var(--pink);height: 56px;">Total workout time</h5>
+                        <div class="text-center"><i class="fa fa-clock-o" style="color: var(--purple);font-size: 25px;margin-top: 15px;"></i></div>
+                    </div>
+                    <div class="col-md-3 offset-xl-1 d-inline-block" style="margin-left: 0px;padding: 0px;">
+                        <p style="color: var(--secondary);text-align: center;margin-top: 10px;font-size: 30px;">1</p>
+                        <h5 class="text-center" style="font-family: Montserrat, sans-serif;color: var(--pink);height: 56px;">Countries you've run with us in</h5>
+                        <div class="text-center"><i class="fa fa-map" style="color: var(--purple);font-size: 25px;margin-top: 15px;"></i></div>
+                    </div>
+                    
+                   
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+     <div style="text-align: center;">
+<div style="text-align: center; padding-top: 5%; padding-bottom: 2%;">
+    <h4 style="color: var(--pink); margin-bottom: 3px; padding-top: 0; margin-top: 40px; font-family: Montserrat, sans-serif;">Your Races</h4>
+</div>
+
+                    <!-- Container for the races -->
+                    <div id="racesContainer" style="display: flex; flex-wrap: wrap; justify-content: center; "></div>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="assets/js/3D_CSS_PROGRESS_BAR_BY_REDSTAPLER.js"></script>
+    <script src="assets/js/mk_charts.js"></script>
+    
+    </div>
+</body>
+
+</html>
